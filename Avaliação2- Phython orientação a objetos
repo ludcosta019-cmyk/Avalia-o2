@@ -1,0 +1,99 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMuvLJ4xlEE/BaKjAN/Rpq7",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/ludcosta019-cmyk/Avalia-ao2/blob/main/Avalia%C3%A7%C3%A3o2-%20Phython%20orienta%C3%A7%C3%A3o%20a%20objetos\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "A1VF7j66dE4M"
+      },
+      "outputs": [],
+      "source": [
+        "class Documento:\n",
+        "    def __init__(self, titulo, conteudo, tipo):\n",
+        "        self.__titulo = titulo\n",
+        "        self.__conteudo = conteudo\n",
+        "        self.__tipo = tipo\n",
+        "\n",
+        "    def get_titulo(self):\n",
+        "        return self.__titulo\n",
+        "\n",
+        "    def get_conteudo(self):\n",
+        "        return self.__conteudo\n",
+        "\n",
+        "    def get_tipo(self):\n",
+        "        return self.__tipo\n",
+        "\n",
+        "\n",
+        "class Impressora:\n",
+        "    def imprimir(self, documento):\n",
+        "        print(\"\\n--- DOCUMENTO ---\")\n",
+        "        print(\"Título:\", documento.get_titulo())\n",
+        "        print(\"Tipo:\", documento.get_tipo())\n",
+        "        print(\"Conteúdo:\", documento.get_conteudo())\n",
+        "        print(\"-----------------\")\n",
+        "\n",
+        "\n",
+        "documentos = []\n",
+        "impressora = Impressora()\n",
+        "\n",
+        "while True:\n",
+        "    print(\"\\n=== MENU ===\")\n",
+        "    print(\"1 - Criar documento\")\n",
+        "    print(\"2 - Visualizar documentos\")\n",
+        "    print(\"3 - Sair\")\n",
+        "\n",
+        "    opcao = input(\"Escolha uma opção: \")\n",
+        "\n",
+        "    if opcao == \"1\":\n",
+        "        titulo = input(\"Digite o título: \")\n",
+        "        conteudo = input(\"Digite o conteúdo: \")\n",
+        "        tipo = input(\"Digite o tipo (relatório, carta, artigo etc.): \")\n",
+        "\n",
+        "        documento = Documento(titulo, conteudo, tipo)\n",
+        "        documentos.append(documento)\n",
+        "\n",
+        "        print(\"Documento criado com sucesso!\")\n",
+        "\n",
+        "    elif opcao == \"2\":\n",
+        "        if len(documentos) == 0:\n",
+        "            print(\"Nenhum documento cadastrado.\")\n",
+        "        else:\n",
+        "            for documento in documentos:\n",
+        "                impressora.imprimir(documento)\n",
+        "\n",
+        "    elif opcao == \"3\":\n",
+        "        print(\"Programa encerrado.\")\n",
+        "        break\n",
+        "\n",
+        "    else:\n",
+        "        print(\"Opção inválida.\")"
+      ]
+    }
+  ]
+}
